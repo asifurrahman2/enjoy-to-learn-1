@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+    <title>Coming soon</title>
+    <style type="text/css" media="all">
+      * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: url('img1.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.page-content {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p.title {
+  margin-bottom: 32px;
+  text-transform: uppercase;
+  font-size: 3em;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+
+.counter-list-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.counter-item {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-item:last-child {
+  margin-right: 0;
+}
+
+.time-number {
+  font-size: 3em;
+  margin-bottom: 4px;
+}
+
+.time-unit {
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-size: 1em;
+  color: #57b846;
+}
+    </style>
+</head>
+
+<body>
+    <div class="page-content">
+        <p class="title">Coming soon</p>
+
+
+        <div class="counter-list-container">
+            <div class="counter-item">
+                <p class="timenumber" id="days">35</p>
+                <p class="time-unit">days</p>
+            </div>
+            <div class="counter-item">
+                <p class="timenumber" id="hours">14</p>
+                <p class="time-unit">hours</p>
+            </div>
+            <div class="counter-item">
+                <p class="timenumber" id="minutes">12</p>
+                <p class="time-unit">minutes</p>
+            </div>
+            <div class="counter-item">
+                <p class="timenumber" id="seconds">22</p>
+                <p class="time-unit">seconds</p>
+            </div>
+        </div>
+
+    </div>
+<script type="text/javascript" charset="utf-8">
+  window.addEventListener('load', () => {
+
+    const computeDates = () => {
+        // Assuming the website will go live the next first January
+        var date_future = new Date(new Date().getFullYear() + 1, 0, 1);
+        const date_now = new Date();
+
+        // get total seconds between dates
+        var delta = Math.abs(date_future - date_now) / 1000;
+
+        // calculate (and subtract) whole days
+        var days = Math.floor(delta / 86400);
+        delta -= days * 86400;
+
+        // calculate (and subtract) whole hours
+        var hours = Math.floor(delta / 3600) % 24;
+        delta -= hours * 3600;
+
+        // calculate (and subtract) whole minutes
+        var minutes = Math.floor(delta / 60) % 24;
+        delta -= minutes * 60;
+
+        // what's left is seconds
+        var seconds = delta % 60;
+
+        // Now insert computed values into our html
+        document.getElementById('days').innerHTML = days;
+        document.getElementById('hours').innerHTML = hours;
+        document.getElementById('minutes').innerHTML = minutes;
+        document.getElementById('seconds').innerHTML = Math.floor(seconds);
+    };
+
+    // compute every 1s (1000ms)
+    setInterval(() => {
+        computeDates();
+    }, 1000);
+
+    // compute immediatly
+    computeDates();
+})
+</script>
+</body>
+
+</html>

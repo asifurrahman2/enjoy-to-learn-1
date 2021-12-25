@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style type="text/css" media="all">
+      body{
+        margin: 0;
+        padding: 0;
+      }
+     .container{
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+     }
+    .mcq, .cq{
+      height: 150px;
+      margin: 15% 5% 5% 5%;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      border-radius: 5px;
+      text-align: center;
+      padding-top: 50px;
+      background: #14C39A;
+      
+    }
+   .mcq:hover{
+   border: 4px solid #FCA71B;
+   }
+   .cq:hover{
+   border: 4px solid #FCA71B;
+   }
+   img{
+     width: 100%;
+   }
+  .mcq, .cq span{
+    color: #FFF;
+    font-size: 23px;
+    font-weight: bold;
+  }
+ .mcq span:hover{
+ color: black;
+ }
+  .cq span:hover{
+  color: black;
+  }
+    </style>
+</head>
+
+<body>
+    <img src="logo.png" alt="" />
+<div class="container">
+  <div class="mcq" onclick="mcq()">
+    <span>নবম - দশম সকল বিষয়ের বহু নির্বাচনি</span>
+  </div>
+  <div class="cq" onclick="cq()">
+     <span>নবম - দশম সকল বিষয়ের সৃজনশীল</span>
+  </div>
+</div>
+<p style="text-align: center; margin-top: 30px;">© Asifurrahman Noyon</p>
+<script type="text/javascript" charset="utf-8">
+  function mcq() {
+  window.location.href = "first-page.html"
+  }
+  function cq() {
+  window.location.href = "coming.html"
+  }
+</script>
+</body>
+
+</html>
